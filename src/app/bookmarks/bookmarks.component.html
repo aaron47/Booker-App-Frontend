@@ -1,0 +1,17 @@
+<ul class="flex gap-4 flex-wrap m-4">
+  <li
+    class="mb-5 w-60 cursor-pointer"
+    *ngFor="let bookmark of bookmarks$ | async"
+  >
+    <mat-card (click)="onBookmarkClick(bookmark._id)">
+      <h3 class="underline">{{ bookmark.name }}</h3>
+    </mat-card>
+  </li>
+</ul>
+
+<button
+  class="absolute right-4 bottom-20 bg-pink-700 hover:bg-pink-800 rounded-full p-4 flex justify-center items-center hover:scale-110 transition ease-out duration-200 shadow-xl shadow-black"
+  (click)="onFabClick()"
+>
+  <mat-icon>add</mat-icon>
+</button>

@@ -1,0 +1,20 @@
+<div class="flex justify-between bg-[#121212] w-screen">
+  <a class="p-5 text-pink-600 underline text-3xl" routerLink="/login">Booker</a>
+
+  <ul
+    class="flex space-x-5 p-5 text-pink-600 text-3xl underline cursor-pointer"
+  >
+    <li>
+      <div *ngIf="(isLoggedIn$ | async) === true; else login">
+        <a (click)="onLogout()">Logout</a>
+      </div>
+      <ng-template #login>
+        <a routerLink="/login">Login</a>
+      </ng-template>
+    </li>
+
+    <li *ngIf="(isLoggedIn$ | async) !== true">
+      <a routerLink="/signup">Sign Up</a>
+    </li>
+  </ul>
+</div>

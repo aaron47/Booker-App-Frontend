@@ -1,0 +1,19 @@
+<div class="flex flex-col justify-center items-center h-screen">
+  <h1>Booker</h1>
+  <mat-form-field appearance="outline">
+    <input type="email" required matInput [formControl]="email" />
+    <mat-icon matSuffix>email</mat-icon>
+    <mat-error *ngIf="email.invalid">{{ getEmailErrorMessage() }}</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <input type="password" required matInput [formControl]="password" />
+    <mat-icon matSuffix>lock</mat-icon>
+    <mat-error *ngIf="password.invalid">{{
+      getPasswordErrorMessage()
+    }}</mat-error>
+  </mat-form-field>
+
+  <button class="bg-pink-600 p-4 w-[100px] rounded" (click)="onSubmit()">
+    {{ submitHandler }}
+  </button>
+</div>
